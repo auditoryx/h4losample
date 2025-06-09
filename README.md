@@ -181,4 +181,15 @@ Push to origin (git push origin feat/my-feature)
 Open a Pull Request
 
 📄 License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License.## 🚀 Deployment
+
+This project is ready to be deployed to [Vercel](https://vercel.com/) or Netlify.
+
+1. Push this repository to GitHub.
+2. Link it to your Vercel account.
+3. Add the following environment variables:
+   - NEXT_PUBLIC_SHOP_DOMAIN
+   - NEXT_PUBLIC_STOREFRONT_TOKEN
+   - NEXT_PUBLIC_STRIPE_KEY
+   - STRIPE_SECRET_KEY
+4. Deploy — automatic builds will run on every push to `main`.
