@@ -1,7 +1,7 @@
 'use client';
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF, Environment } from '@react-three/drei';
+import { OrbitControls, useGLTF } from '@react-three/drei';
 
 function Model() {
   const { scene } = useGLTF('/models/vibram.glb');
@@ -15,12 +15,12 @@ export default function WhyOjiViewer() {
         <ambientLight intensity={1.2} />
         <directionalLight position={[3, 5, 2]} intensity={2} />
         <Suspense fallback={null}>
-          <Environment preset="city" />
+          {/* Only the model—no <Environment /> */}
           <Model />
         </Suspense>
         <OrbitControls
           enablePan={false}
-          enableZoom={true}
+          enableZoom
           autoRotate
           autoRotateSpeed={1.5}
         />

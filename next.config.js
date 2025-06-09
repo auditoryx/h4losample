@@ -1,8 +1,20 @@
-require('dotenv').config({ path: '.env.local' });
+// next.config.js
+const webpack = require('webpack');
 
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-  // Static files are served from the `public` directory by default
+  webpack(config) {
+    // 1) fallback 'buffer' to the npm buffer package
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      buffer: require.resolve('buffer/'),
+    };
+    // 2) expose Buffer globally so modules can use it
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        Buffer: ['buffer', 'Buffer'],
+      })
+    );
+    return config;
+  },
 };
-
-module.exports = nextConfig;

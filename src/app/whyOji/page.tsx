@@ -1,8 +1,11 @@
 'use client';
-import React from 'react';
+
 import dynamic from 'next/dynamic';
 
-const IntroGate = dynamic(() => import('@/app/components/WhyOjiIntroGate'), { ssr: false });
+const IntroGate = dynamic(
+  () => import('../components/WhyOjiIntroGate'),
+  { ssr: false }
+);
 
 export default function WhyOjiPage() {
   return (
