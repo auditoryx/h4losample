@@ -1,0 +1,16 @@
+[
+  {
+    "id": "vibram-boot",
+    "title": "Vibram Boot Sample",
+    "image": "/products/vibram-boot.jpg",
+    "price": "$199",
+    "currency": "USD"
+  },
+  {
+    "id": "h4lo-jacket",
+    "title": "H4LO Jacket Prototype",
+    "image": "/products/h4lo-jacket.jpg",
+    "price": "$249",
+    "currency": "USD"
+  }
+]

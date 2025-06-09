@@ -16,19 +16,8 @@ type Props = {
 };
 
 export default function ProductModal({ product, onClose }: Props) {
-  const handleBuyNow = async () => {
-    try {
-      const res = await fetch('/api/createCheckoutSession', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productId: product.id }),
-      });
-      const { sessionId } = await res.json();
-      const stripe = (window as any).Stripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
-      await stripe.redirectToCheckout({ sessionId });
-    } catch (err) {
-      console.error('Checkout error:', err);
-    }
+  const handleBuyNow = () => {
+    alert(`Pretend checkout for "${product.title}"`);
   };
 
   return (
@@ -46,9 +35,11 @@ export default function ProductModal({ product, onClose }: Props) {
           className="w-full h-64 object-cover rounded mb-4"
         />
         <h2 className="text-xl font-bold mb-2">{product.title}</h2>
-        <p className="text-lg mb-4">{product.price} {product.currency}</p>
+        <p className="text-lg mb-4">
+          {product.price} {product.currency}
+        </p>
         <button
-          className="w-full px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+          className="w-full px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
           onClick={handleBuyNow}
         >
           Buy Now
